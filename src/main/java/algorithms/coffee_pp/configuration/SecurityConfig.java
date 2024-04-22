@@ -41,14 +41,16 @@ public class SecurityConfig {
         return httpSecurity
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> auth.requestMatchers(
-                        "/welcome", "/login", "/registration", "/").permitAll()
+                        "/welcome", "/registration", "/").permitAll()
                         .requestMatchers("/registration").anonymous()
                         .requestMatchers("/allUsers").authenticated()
                         .requestMatchers("/admin").hasAuthority("ADMIN")
-//                        .anyRequest().authenticated()
+                        .anyRequest().authenticated()
                         )
+                .formLogin(formLogin -> formLogin.loginPage("/login")
+                        .permitAll())
                 .httpBasic(Customizer.withDefaults())
-                .formLogin(AbstractAuthenticationFilterConfigurer::permitAll)
+//                .formLogin(AbstractAuthenticationFilterConfigurer::permitAll)
                 .logout(LogoutConfigurer::permitAll)
                 .build();
 

@@ -36,8 +36,8 @@ public class ProfileController {
         return "redirect:/welcome";
     }
 
-//    @GetMapping("/login")
-//    public String login() {
-//        return "login";
-//    }
+    @GetMapping("/user")
+    public String login() {
+        return "user";
+    }
 }
