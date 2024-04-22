@@ -1,0 +1,1 @@
+alter table users add column user_id bigint generated always as identity;
