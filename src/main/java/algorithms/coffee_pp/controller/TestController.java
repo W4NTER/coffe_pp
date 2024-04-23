@@ -1,13 +1,12 @@
 package algorithms.coffee_pp.controller;
 
-import algorithms.coffee_pp.domain.services.JdbcUsersService;
+import algorithms.coffee_pp.domain.services.jdbc.JdbcUsersService;
 import algorithms.coffee_pp.dto.request.UserRequest;
 import algorithms.coffee_pp.dto.response.UserResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 

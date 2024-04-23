@@ -1,10 +1,9 @@
-package algorithms.coffee_pp.domain.services;
+package algorithms.coffee_pp.domain.services.jdbc;
 
 import algorithms.coffee_pp.domain.respository.jdbc.JdbcAuthorityRepository;
 import algorithms.coffee_pp.domain.respository.jdbc.JdbcUserRepository;
-import algorithms.coffee_pp.dto.request.UserRequest;
+import algorithms.coffee_pp.domain.services.UsersService;
 import algorithms.coffee_pp.dto.response.UserResponse;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
