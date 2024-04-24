@@ -4,7 +4,7 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
                       http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.21.xsd">
-        <changeSet id="create_docs" author="Vadim">
-            <sqlFile path="sql/create_table_docs.sql" relativeToChangelogFile="true"/>
+        <changeSet id="create_tables_for_courses" author="Vadim">
+            <sqlFile path="sql/create_tables_for_courses.sql" relativeToChangelogFile="true"/>
         </changeSet>
 </databaseChangeLog>
