@@ -1,0 +1,1 @@
+alter table module alter column module_id add generated always as identity;

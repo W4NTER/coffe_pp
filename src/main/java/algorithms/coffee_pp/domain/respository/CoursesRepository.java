@@ -8,6 +8,6 @@ import java.util.List;
 public interface CoursesRepository {
     long addCourse(String courseName, String description,
                    OffsetDateTime startDate, OffsetDateTime endDate);
-
     List<CourseResponse> findAll();
+    CourseResponse getCourse(long courseId);
 }

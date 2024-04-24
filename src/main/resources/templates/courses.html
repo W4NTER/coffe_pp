@@ -13,10 +13,12 @@
     <h2>Courses</h2>
     <a th:href="'courses/add'" class="ui-button">Создать мероприятие</a>
     <div th:each="course : ${courses}" class="alert alert-info mt-2">
-        <h3>Название: <a th:text="${course.courseName()}"/></h3>
+        <h3>Название: <a th:text="${course.courseName()}"
+                         th:href="@{'/courses/' + ${course.courseId()}}"/></h3>
         <h3>Описание: <a th:text="${course.description()}" /></h3>
         <h3>Дата начала<a th:text="${course.startDate()}"/></h3>
         <h3>Дата окончания<a th:text="${course.endDate()}"/></h3>
+        <a th:href="@{'/courses/subscribe/' + ${course.courseId}}" class="ui-button">Подписаться</a>
         <!--    <div>-->
         <!--      <img  th:src="${'/img/' + elem.filename}">-->
         <!--    </div>-->

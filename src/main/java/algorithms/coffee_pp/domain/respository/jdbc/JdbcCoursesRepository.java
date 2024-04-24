@@ -33,8 +33,17 @@ public class JdbcCoursesRepository implements CoursesRepository {
                 (rs, rowNum) -> getCourseResponse(rs));
     }
 
+    @Override
+    public CourseResponse getCourse(long courseId) {
+        return jdbcTemplate.queryForObject(
+                "select course_id, course_title, description, start_date, end_date " +
+                        "from courses where course_id = ?",
+                (rs, rowNum) -> getCourseResponse(rs), courseId);
+    }
+
     public CourseResponse getCourse(String title) {
-        return jdbcTemplate.queryForObject("select course_id, course_title, description, start_date, end_date " +
+        return jdbcTemplate.queryForObject(
+                "select course_id, course_title, description, start_date, end_date " +
                 "from courses where course_title = ?", (rs, rowNum) -> getCourseResponse(rs), title);
     }
 

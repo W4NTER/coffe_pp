@@ -22,13 +22,18 @@ public class JdbcCourseService implements CoursesService {
 
     @Override
     public void addCourse(long userId, String courseTitle, String description) {
-        long courseId = jdbcCoursesRepository.addCourse(courseTitle, description,
+        jdbcCoursesRepository.addCourse(courseTitle, description,
                 OffsetDateTime.now(), OffsetDateTime.now());
-        jdbcCoursesToUsersRepository.add(courseId, userId);
+//        jdbcCoursesToUsersRepository.add(courseId, userId);
     }
 
     @Override
     public List<CourseResponse> findAll() {
         return jdbcCoursesRepository.findAll();
+    }
+
+    @Override
+    public CourseResponse getCourse(long courseId) {
+        return jdbcCoursesRepository.getCourse(courseId);
     }
 }
