@@ -17,8 +17,14 @@ public class JdbcModuleService implements ModuleService {
     }
 
     @Override
-    public void addModule(long courseId, String title) {
-        jdbcModuleRepository.addModule(courseId, title, OffsetDateTime.now(), OffsetDateTime.now());
+    public Long addModule(long courseId, String title) {
+        return jdbcModuleRepository.
+                addModule(
+                        courseId,
+                        title,
+                        OffsetDateTime.now(),
+                        OffsetDateTime.now()
+                );
     }
 
     @Override

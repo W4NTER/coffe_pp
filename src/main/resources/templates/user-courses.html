@@ -10,15 +10,15 @@
 <body>
 <header th:insert="~{blocks/header :: header}"></header>
 
-<h2>Modules</h2>
-<a th:href="@{'/courses/modules/add/' + ${course.courseId()}}" class="btn btn-primary mb-2">Добавить модуль</a>
-
-<div th:each="module : ${modules}" class="card mb-3">
+<div th:each="course : ${courses}" class="card mb-3">
     <div class="card-body">
-        <h3 class="card-title"><a th:href="@{'/courses/modules/' + ${module.moduleId()}}" th:text="${module.moduleTitle()}"></a></h3>
+        <h3 class="card-title">Название: <a th:text="${course.courseName()}"
+                                            th:href="@{'/courses/' + ${course.courseId()}}"/></h3>
+        <p class="card-text">Описание: <span th:text="${course.description()}" /></p>
+        <p class="card-text">Дата начала: <span th:text="${course.startDate()}"/></p>
+        <p class="card-text">Дата окончания: <span th:text="${course.endDate()}"/></p>
     </div>
 </div>
-
 
 <footer th:insert="~{blocks/footer :: footer}"></footer>
 </body>

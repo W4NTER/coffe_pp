@@ -10,14 +10,27 @@
 <body>
 <header th:insert="~{blocks/header :: header}"></header>
 
-    <div class="container mt-5">
-        <form action="/courses/add" method="post" enctype="multipart/form-data">
-            <input type="text" name="title" placeholder="Ведите название"/>
-            <input type="text" name="description" placeholder="Введите описание"/>
-<!--            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>-->
-            <button type="submit">Добавить</button>
-        </form>
-    </div>
+<div class="container mt-5">
+    <form action="/courses/add" method="post" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label for="title" class="form-label">Введите название курса</label>
+            <input type="text" id="title" name="title" class="form-control" placeholder="Введите название" required>
+            <div class="invalid-feedback">
+                Пожалуйста, введите название курса.
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="description" class="form-label">Введите описание курса</label>
+            <input type="text" id="description" name="description" class="form-control" placeholder="Введите описание" required>
+            <div class="invalid-feedback">
+                Пожалуйста, введите описание курса.
+            </div>
+        </div>
+        <!--        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>-->
+        <button type="submit" class="btn btn-primary">Добавить</button>
+    </form>
+</div>
+
 
 <footer th:insert="~{blocks/footer :: footer}"></footer>
 </body>

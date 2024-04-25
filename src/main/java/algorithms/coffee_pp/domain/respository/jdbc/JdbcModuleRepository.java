@@ -16,10 +16,11 @@ public class JdbcModuleRepository implements ModuleRepository {
 
 
     @Override
-    public void addModule(long courseId, String title, OffsetDateTime startTime, OffsetDateTime endTime) {
+    public Long addModule(long courseId, String title, OffsetDateTime startTime, OffsetDateTime endTime) {
         jdbcTemplate.update("insert into module " +
                 "(module_title, course_id, start_date, end_date) values (?,?,?,?)",
                 title, courseId, startTime, endTime);
+        return getModule(title, courseId);
     }
 
     @Override
@@ -31,5 +32,12 @@ public class JdbcModuleRepository implements ModuleRepository {
                         rs.getString("module_title"),
                         rs.getLong("module_id")
                 ), courseId);
+    }
+
+    private Long getModule(String title, long courseId) {
+        return jdbcTemplate.queryForObject(
+                "select module_id from module" +
+                        " where module_title = ? and course_id =?",
+                Long.class, title, courseId);
     }
 }

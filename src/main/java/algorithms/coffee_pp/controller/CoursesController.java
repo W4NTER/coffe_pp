@@ -75,4 +75,13 @@ public class CoursesController {
         model.addAttribute("course", jdbcCourseService.getCourse(courseId));
         return "modules";
     }
+
+    @GetMapping("courses/user")
+    public String userCourses(Model model) {
+        long userId = getUserId();
+        List<Long> coursesId = jdbcCoursesToUsersService.getAllByUser(userId);
+        List<CourseResponse> courses = coursesId.stream().map(jdbcCourseService::getCourse).toList();
+        model.addAttribute("courses", courses);
+        return "user-courses";
+    }
 }

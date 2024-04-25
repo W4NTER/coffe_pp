@@ -6,6 +6,8 @@ import java.time.OffsetDateTime;
 import java.util.List;
 
 public interface ModuleRepository {
-    void addModule(long courseId, String title, OffsetDateTime startTime, OffsetDateTime endTime);
+    Long addModule(
+            long courseId, String title,
+            OffsetDateTime startTime, OffsetDateTime endTime);
     List<ModuleResponse> findAll(long courseId);
 }

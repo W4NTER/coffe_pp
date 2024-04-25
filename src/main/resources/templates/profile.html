@@ -10,33 +10,42 @@
 <body>
 <header th:insert="~{blocks/header :: header}"></header>
 <div class="container">
+<!--    <h2>Docs</h2>-->
+
+<!--    <form method="post" action="/upload" enctype="multipart/form-data">-->
+<!--        <input type="file" name="file" />-->
+<!--        <button type="submit">Upload</button>-->
+<!--    </form>-->
+<!--    <br>-->
+<!--    <br>-->
+<!--    <br>-->
+<!--    <br>-->
+
+<!--    <h2>Uploaded Files</h2>-->
+<!--    <ul class="list-group">-->
+<!--&lt;!&ndash;        <li th:each="file : ${files}" th:text="${file}" class="list-group-item list-group-item-action">&ndash;&gt;-->
+<!--        <li th:each="file : ${files}">-->
+<!--            <span th:text="${file}">File</span>-->
+<!--            <a th:href="@{/download/{file}(file=${file})}" class="btn btn-primary">Download</a>-->
+<!--        </li>-->
+<!--    </ul>-->
     <h2>Docs</h2>
 
     <form method="post" action="/upload" enctype="multipart/form-data">
-        <input type="file" name="file" />
-        <button type="submit">Upload</button>
+        <div class="input-group mb-3">
+            <input type="file" name="file" class="form-control" />
+            <button type="submit" class="btn btn-primary">Upload</button>
+        </div>
     </form>
-    <br>
-    <br>
-    <br>
-    <br>
 
     <h2>Uploaded Files</h2>
     <ul class="list-group">
-<!--        <li th:each="file : ${files}" th:text="${file}" class="list-group-item list-group-item-action">-->
-        <li th:each="file : ${files}">
+        <li th:each="file : ${files}" class="list-group-item d-flex justify-content-between align-items-center">
             <span th:text="${file}">File</span>
             <a th:href="@{/download/{file}(file=${file})}" class="btn btn-primary">Download</a>
         </li>
     </ul>
 
-
-<!--    <ul>-->
-<!--        <li th:each="file : ${files}">-->
-<!--            <span th:text="${file}">Файл</span>-->
-<!--            <a th:href="@{/download/{file}(file=${file})}" class="btn btn-primary">Скачать снова</a>-->
-<!--        </li>-->
-<!--    </ul>-->
 
 
 </div>

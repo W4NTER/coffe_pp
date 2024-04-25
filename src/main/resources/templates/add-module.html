@@ -10,12 +10,53 @@
 <body>
 <header th:insert="~{blocks/header :: header}"></header>
 
+<!--<div class="container mt-5">-->
+<!--    <form th:action="@{'/courses/modules/add/' + ${courseId}}" method="post" enctype="multipart/form-data">-->
+<!--        <div class="mb-3">-->
+<!--            <label for="title" class="form-label">Введите название модуля</label>-->
+<!--            <input type="text" id="title" name="title" class="form-control" placeholder="Введите название" required>-->
+<!--            <div class="invalid-feedback">-->
+<!--                Пожалуйста, введите название модуля.-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <button type="submit" class="btn btn-primary">Добавить</button>-->
+<!--    </form>-->
+<!--</div>-->
+
 <div class="container mt-5">
     <form th:action="@{'/courses/modules/add/' + ${courseId}}" method="post" enctype="multipart/form-data">
-        <input type="text" name="title" placeholder="Ведите название"/>
-        <button type="submit">Добавить</button>
+        <div class="mb-3">
+            <label for="title" class="form-label">Введите название модуля</label>
+            <input type="text" id="title" name="title" class="form-control" placeholder="Введите название" required>
+            <div class="invalid-feedback">
+                Пожалуйста, введите название модуля.
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="description" class="form-label">Введите описание модуля</label>
+            <input type="text" id="description" name="description" class="form-control" placeholder="Введите описание" required>
+            <div class="invalid-feedback">
+                Пожалуйста, введите описание модуля.
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="image" class="form-label">Выберите изображение</label>
+            <input type="file" id="image" name="image" class="form-control" required>
+            <div class="invalid-feedback">
+                Пожалуйста, выберите изображение.
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="body" class="form-label">Введите содержание модуля</label>
+            <textarea id="body" name="body" class="form-control" rows="4" placeholder="Введите содержание" required></textarea>
+            <div class="invalid-feedback">
+                Пожалуйста, введите содержание модуля.
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Добавить</button>
     </form>
 </div>
+
 
 <footer th:insert="~{blocks/footer :: footer}"></footer>
 </body>
