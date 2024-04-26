@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Test</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<header th:insert="~{blocks/header :: header}"></header>
+
+<form id="test-form" class="container my-5" method="post">
+    <h2 class="text-center mb-4">Create a New Test</h2>
+
+    <div class="form-group">
+        <label for="question">Question:</label>
+        <textarea class="form-control" id="question" name="question" rows="3" required></textarea>
+    </div>
+
+    <div class="form-group">
+        <label for="correct-answer">Correct Answer:</label>
+        <input type="text" class="form-control" id="correct-answer" name="correct-answer" required>
+    </div>
+
+    <div class="form-group">
+        <label for="options">Options (comma-separated):</label>
+        <textarea class="form-control" id="options" name="options" rows="3" required></textarea>
+    </div>
+
+    <div class="text-center">
+        <button type="submit" class="btn btn-primary">Create Test</button>
+    </div>
+</form>
+
+<footer th:insert="~{blocks/footer :: footer}"></footer>
+</body>
+</html>

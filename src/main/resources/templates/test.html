@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Тест</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<header th:insert="~{blocks/header :: header}"></header>
+
+<div class="container my-5">
+    <h1 class="text-center mb-4">Tests</h1>
+
+    <form id="test-form" th:action="@{/courses/test/submit/{courseId}(courseId=${courseId})}" method="post">
+        <div th:each="test, testStat : ${tests}">
+            <div class="form-group">
+                <label th:for="|question-${testStat.index}|" class="font-weight-bold" th:text="${test.question}">What is the capital of France?</label>
+            </div>
+
+            <div class="form-group">
+                <div class="form-check" th:each="option : ${test.options}">
+                    <input class="form-check-input" type="radio" th:name="|answer-${testStat.index}|" th:id="|option-${testStat.index}-${optionStat.index}|" th:value="${option}">
+                    <label class="form-check-label" th:for="|option-${testStat.index}-${optionStat.index}|" th:text="${option}"></label>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+</div>
+
+<footer th:insert="~{blocks/footer :: footer}"></footer>
+</body>
+</html>

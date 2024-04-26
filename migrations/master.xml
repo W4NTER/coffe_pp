@@ -4,7 +4,7 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
                       http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.21.xsd">
-        <changeSet id="change_users" author="Vadim">
-            <sqlFile path="sql/change_users_table.sql" relativeToChangelogFile="true"/>
+        <changeSet id="change_content" author="Vadim">
+            <sqlFile path="sql/change_content.sql" relativeToChangelogFile="true"/>
         </changeSet>
 </databaseChangeLog>
