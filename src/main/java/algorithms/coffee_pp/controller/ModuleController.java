@@ -48,10 +48,9 @@ public class ModuleController {
             @RequestParam String description,
             @RequestParam MultipartFile image,
             @RequestParam String body) {
-        LOGGER.info("Зашли в контроллер");
         try {
             byte[] bytes = image.getBytes();
-            Path path = Paths.get("uploads/" + image.getOriginalFilename());
+            Path path = Paths.get("src/main/resources/static/images/" + image.getOriginalFilename());
             Files.write(path, bytes);
 
             Long moduleId = jdbcModuleService.addModule(courseId, title);
