@@ -7,6 +7,7 @@ import algorithms.coffee_pp.domain.services.jdbc.JdbcUsersService;
 import algorithms.coffee_pp.dto.response.QuestionsResponse;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -32,11 +33,13 @@ public class TestsController {
     }
 
     @GetMapping("/add/test/{courseId}")
+    @PreAuthorize("hasAuthority('ADMIN') or hasAuthority('MANAGER')")
     public String testPage() {
         return "test-add";
     }
 
     @PostMapping("/add/test/{courseId}")
+    @PreAuthorize("hasAuthority('ADMIN') or hasAuthority('MANAGER')")
     public String test(
             @PathVariable long courseId,
             @RequestParam String question,
